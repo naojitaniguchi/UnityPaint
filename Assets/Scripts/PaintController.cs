@@ -139,7 +139,8 @@ public class PaintController : MonoBehaviour
         {
             for (int h = 0; h < height; h++)
             {
-                m_texture.SetPixel(w, h, Color.white);
+                // m_texture.SetPixel(w, h, Color.white);
+                m_texture.SetPixel(w, h, Color.clear);
             }
         }
         m_texture.Apply();
