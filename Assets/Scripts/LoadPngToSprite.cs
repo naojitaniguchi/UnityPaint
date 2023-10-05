@@ -7,9 +7,15 @@ public class LoadPngToSprite : MonoBehaviour
 {
     [SerializeField] string pngName = "test.png";
     // Start is called before the first frame update
+
+    [SerializeField] bool autoLoad;
+    [SerializeField] float waitTime = 2.0f;
     void Start()
     {
-        
+        if (autoLoad)
+        {
+            StartCoroutine(autoLoadImage());
+        }
     }
 
     // Update is called once per frame
@@ -61,5 +67,12 @@ public class LoadPngToSprite : MonoBehaviour
                 return Tex2D;                 // If data = readable -> return texture
         }
         return null;                     // Return null if load failed
+    }
+
+    IEnumerator autoLoadImage()
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        loadTextureToSprite();
     }
 }

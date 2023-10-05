@@ -415,7 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1010656cff6f8164db3bda3891eb7304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: Scenes/View
+  nextScene: Scenes/ViewWithEffect
   waitForFade: 1
   waitTime: 2
 --- !u!1 &115323722
@@ -2711,7 +2711,7 @@ MonoBehaviour:
   eraserHight: 50
   m_width: 4
   m_height: 4
-  penCursor: {fileID: 2800000, guid: 4d0b85c661915fa4bb03f6b6dba3c96f, type: 3}
+  penCursor: {fileID: 2800000, guid: 5b20b646adccbc749bf1a6b9f6a35922, type: 3}
   eraserCursor: {fileID: 2800000, guid: 0b891539af1893b4a83595e6efedbfc3, type: 3}
 --- !u!4 &1545848569
 Transform:

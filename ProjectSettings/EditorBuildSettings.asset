@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/View.unity
     guid: d3cac98514ced2f41bd29fe85db0b843
+  - enabled: 1
+    path: Assets/Scenes/ViewWithEffect.unity
+    guid: 9ba7cce6e3f33734d9db8aa131eafa43
   m_configObjects: {}

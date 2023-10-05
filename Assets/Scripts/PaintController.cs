@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System.IO;
+using Unity.VisualScripting;
 
 public class PaintController : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class PaintController : MonoBehaviour
 
     [SerializeField] Texture2D penCursor;
     [SerializeField] Texture2D eraserCursor;
+    Vector2 penHotSpot = Vector2.zero;
+    Vector2 elaserHotSpot = Vector2.zero;
 
     public void OnDrag(BaseEventData arg) //ê¸Çï`âÊ
     {
@@ -128,7 +131,13 @@ public class PaintController : MonoBehaviour
 
         m_image.texture = m_texture;
 
-        Cursor.SetCursor(penCursor, Vector2.zero, CursorMode.Auto);
+        penHotSpot.x = 0;
+        penHotSpot.y = penCursor.Size().y;
+
+        elaserHotSpot.x = 0;
+        elaserHotSpot.y = eraserCursor.Size().y;
+
+        Cursor.SetCursor(penCursor, penHotSpot, CursorMode.Auto);
     }
 
     //â∫ÇÃä÷êîÇí«â¡Åi2021/10/21Åj
@@ -148,18 +157,18 @@ public class PaintController : MonoBehaviour
 
     public void SetCurrentColor(string hexColor)
     {
-        ColorUtility.TryParseHtmlString(hexColor, out currentColor);
+        UnityEngine.ColorUtility.TryParseHtmlString(hexColor, out currentColor);
         m_width = penWidth;
         m_height = penHight;
-        Cursor.SetCursor(penCursor, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(penCursor, penHotSpot, CursorMode.Auto);
     }
 
     public void SetEraser()
     {
-        currentColor = Color.white;
+        currentColor = Color.clear;
         m_width = eraserWidth;
         m_height = eraserHight;
-        Cursor.SetCursor(eraserCursor, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(eraserCursor, elaserHotSpot, CursorMode.Auto);
     }
 
     public void Save()
